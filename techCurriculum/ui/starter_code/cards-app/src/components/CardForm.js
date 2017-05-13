@@ -16,6 +16,8 @@
 
 import React from 'react';
 import TextInput from './TextInput.js'
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 
 class CardForm extends React.Component {
   constructor(props) {
@@ -40,11 +42,17 @@ class CardForm extends React.Component {
   }
 
   render() {
+    const tagOptions = [
+      { value: 'today', label: 'Today' },
+      { value: 'red', label: 'Red' }
+    ];
     return (
       <form className='card-form'>
         <h2>Add a Card</h2>
         <TextInput name='username' label='Username' value={this.state.username} onChange={this.handleUsernameChange}/>
         <TextInput name='message' label='Message' value={this.state.message} onChange={this.handleMessageChange}/>
+        <Select options={tagOptions} multi/>
+        <br />
         <button className='btn btn-primary' onClick={this.handleSubmit}>Submit</button>
       </form>
     );
