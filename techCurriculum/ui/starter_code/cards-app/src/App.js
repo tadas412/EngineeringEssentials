@@ -16,11 +16,13 @@
 
 import React from 'react';
 import Title from './components/Title';
+import Card from './components/Card';
 
 function App() {
   return (
     <div>
       <Title />
+      <Card />
     </div>
   );
 }
