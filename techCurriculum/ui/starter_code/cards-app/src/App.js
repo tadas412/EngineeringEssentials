@@ -18,6 +18,9 @@ import React from 'react';
 import Title from './components/Title';
 import Card from './components/Card';
 import CardForm from './components/CardForm';
+import LineChart from './components/LineChart';
+import JohnData from './data/john_posts.json';
+import JaneData from './data/jane_posts.json';
 
 class App extends React.Component {
   constructor(props) {
@@ -55,12 +58,15 @@ class App extends React.Component {
     ));
 
     return (
-      <div id='app-body'>
-        <div id='left-panel'>
-          <Title />
-          { cards }
+      <div>
+        <div id='app-body'>
+          <div id='left-panel'>
+            <Title />
+            { cards }
+          </div>
+          <CardForm onSubmit={this.handleSubmit} />
         </div>
-        <CardForm onSubmit={this.handleSubmit} />
+        <LineChart dataOne={JohnData.data} dataTwo={JaneData.data} />
       </div>
     );
   }
