@@ -58,6 +58,7 @@ class CardForm extends React.Component {
         <TextInput name='username' label='Username' value={this.state.username} onChange={this.handleUsernameChange}/>
         <TextInput name='message' label='Message' value={this.state.message} onChange={this.handleMessageChange}/>
         <Select options={tagOptions} multi value={this.state.tags} onChange={this.handleTagsChange}/>
+        <br />
         <button className='btn btn-primary' onClick={this.handleSubmit}>Submit</button>
       </form>
     );
