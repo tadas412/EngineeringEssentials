@@ -26,19 +26,21 @@ class App extends React.Component {
       cards: [
         {
           author: 'John Smith',
-          text: 'React is so cool!'
+          text: 'React is so cool!',
+          tags: []
         },
         {
           author: 'Jane Doe',
-          text: 'I use React for all my projects!'
+          text: 'I use React for all my projects!',
+          tags: []
         }
       ]
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(author, message) {
-    const newCard = {author: author, text: message};
+  handleSubmit(author, message, tags) {
+    const newCard = {author: author, text: message, tags: tags};
     const cards = [...this.state.cards, newCard];
     this.setState({cards: cards});
   }
@@ -47,7 +49,8 @@ class App extends React.Component {
     const cards = this.state.cards.map((card, index) => (
       <Card author={card.author}
         text={card.text}
-        key={index} />
+        key={index}
+        tags={card.tags} />
     ));
 
     return (
