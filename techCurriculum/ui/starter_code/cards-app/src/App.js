@@ -15,11 +15,12 @@
 **/
 
 import React from 'react';
+import Title from './components/Title';
 
 function App() {
   return (
     <div>
-      <h1>Hello World 2</h1>
+      <Title />
     </div>
   );
 }
