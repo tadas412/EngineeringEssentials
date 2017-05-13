@@ -16,11 +16,11 @@
 
 import React from 'react';
 
-function User() {
+function User(props) {
   return (
     <div className='user'>
       <i className='fa fa-user-o'/>
-      <p>John Smith</p>
+      <p>{props.name}</p>
     </div>
   );
 }
