@@ -18,12 +18,12 @@ import React from 'react';
 import User from './User';
 import Message from './Message';
 
-function Card() {
+function Card(props) {
   return (
     <div className='card'>
-      <User name='John Smith'/>
+      <User name={props.author}/>
       <div className='card-main'>
-        <Message text='React is so cool!'/>
+        <Message text={props.text}/>
       </div>
     </div>
   );

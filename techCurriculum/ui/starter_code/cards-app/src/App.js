@@ -22,7 +22,8 @@ function App() {
   return (
     <div>
       <Title />
-      <Card />
+      <Card author='John Smith' text='React is so cool!'/>
+      <Card author='Jane Doe' text='I use React for all my projects!'/>
     </div>
   );
 }
