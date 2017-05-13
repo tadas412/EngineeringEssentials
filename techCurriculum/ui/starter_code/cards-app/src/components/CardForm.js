@@ -22,10 +22,11 @@ import 'react-select/dist/react-select.css';
 class CardForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {username: '', message: ''};
+    this.state = {username: '', message: '', tags: []};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
     this.handleMessageChange = this.handleMessageChange.bind(this);
+    this.handleTagsChange = this.handleTagsChange.bind(this);
   }
 
   handleUsernameChange(value) {
@@ -41,6 +42,10 @@ class CardForm extends React.Component {
     this.props.onSubmit(this.state.username, this.state.message);
   }
 
+  handleTagsChange(tagList) {
+    this.setState({tags: tagList});
+  }
+
   render() {
     const tagOptions = [
       { value: 'today', label: 'Today' },
@@ -51,7 +56,7 @@ class CardForm extends React.Component {
         <h2>Add a Card</h2>
         <TextInput name='username' label='Username' value={this.state.username} onChange={this.handleUsernameChange}/>
         <TextInput name='message' label='Message' value={this.state.message} onChange={this.handleMessageChange}/>
-        <Select options={tagOptions} multi/>
+        <Select options={tagOptions} multi value={this.state.tags} onChange={this.handleTagsChange}/>
         <br />
         <button className='btn btn-primary' onClick={this.handleSubmit}>Submit</button>
       </form>
