@@ -39,8 +39,8 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(author, message, tags) {
-    const newCard = {author: author, text: message, tags: tags};
+  handleSubmit(author, message, tags, dateStamp) {
+    const newCard = {author: author, text: message, tags: tags, dateStamp: dateStamp};
     const cards = [...this.state.cards, newCard];
     this.setState({cards: cards});
   }
@@ -50,7 +50,8 @@ class App extends React.Component {
       <Card author={card.author}
         text={card.text}
         key={index}
-        tags={card.tags} />
+        tags={card.tags}
+        dateStamp={card.dateStamp} />
     ));
 
     return (

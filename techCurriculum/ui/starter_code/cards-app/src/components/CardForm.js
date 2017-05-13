@@ -42,7 +42,7 @@ class CardForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.onSubmit(this.state.username, this.state.message, this.state.tags);
+    this.props.onSubmit(this.state.username, this.state.message, this.state.tags, this.state.dateStamp);
   }
 
   handleTagsChange(tagList) {

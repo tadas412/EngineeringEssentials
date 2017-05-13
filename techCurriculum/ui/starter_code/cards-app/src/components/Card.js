@@ -31,6 +31,7 @@ function Card(props) {
         <Message text={props.text}/>
       </div>
       {tagElements}
+      {props.dateStamp ?  props.dateStamp.toString() : null}
     </div>
   );
 }
