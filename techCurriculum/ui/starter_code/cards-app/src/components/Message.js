@@ -16,10 +16,10 @@
 
 import React from 'react';
 
-function Message() {
+function Message(props) {
   return (
     <div className='message-text'>
-      <p>React is so cool!</p>
+      <p>{props.text}</p>
     </div>
   );
 }

@@ -23,7 +23,7 @@ function Card() {
     <div className='card'>
       <User name='John Smith'/>
       <div className='card-main'>
-        <Message />
+        <Message text='React is so cool!'/>
       </div>
     </div>
   );
