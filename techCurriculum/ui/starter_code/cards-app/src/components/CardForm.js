@@ -18,15 +18,18 @@ import React from 'react';
 import TextInput from './TextInput.js'
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 class CardForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {username: '', message: '', tags: []};
+    this.state = {username: '', message: '', tags: [], dateStamp: undefined};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
     this.handleMessageChange = this.handleMessageChange.bind(this);
     this.handleTagsChange = this.handleTagsChange.bind(this);
+    this.handleDateStampChange = this.handleDateStampChange.bind(this);
   }
 
   handleUsernameChange(value) {
@@ -47,6 +50,10 @@ class CardForm extends React.Component {
     this.setState({tags: tagValues});
   }
 
+  handleDateStampChange(dateStamp) {
+    this.setState({dateStamp: dateStamp});
+  }
+
   render() {
     const tagOptions = [
       { value: 'today', label: 'Today' },
@@ -59,6 +66,8 @@ class CardForm extends React.Component {
         <TextInput name='message' label='Message' value={this.state.message} onChange={this.handleMessageChange}/>
         <Select options={tagOptions} multi value={this.state.tags} onChange={this.handleTagsChange}/>
         <br />
+        <DatePicker selected={this.state.dateStamp} onChange={this.handleDateStampChange} />
+        <br /><br />
         <button className='btn btn-primary' onClick={this.handleSubmit}>Submit</button>
       </form>
     );
